@@ -1,0 +1,12 @@
+[Unit]
+Description=Cloud Exam Data Generator
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'while true; do echo "$(date)" >> /var/app/data/app.log; sleep 30; done'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
